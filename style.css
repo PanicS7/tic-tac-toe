@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#gameboard {
+  width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+#gameboard .field {
+  border: 1px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+}
