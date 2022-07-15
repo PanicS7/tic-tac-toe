@@ -5,7 +5,9 @@ const GAMEBOARD = {
   draw: (event, player) => {
     player.draw(event);
   },
-  haveWinner: false
+  haveWinner: false,
+  winnerElem: document.getElementById("winner"),
+  container: document.getElementById("gameboard")
 };
 
 const GAMEFLOW = {
@@ -26,20 +28,15 @@ const GAMEFLOW = {
   endGame: (event) => {
     GAMEFLOW.findWinner();
     // If game turn is 10 - all fields are clicked, game need to end
-    if (GAMEFLOW.turnCount >= 10) {
+    if (GAMEFLOW.turnCount >= 10 && GAMEBOARD.haveWinner === false) {
       GAMEBOARD.haveWinner = true;
-    }
+      GAMEBOARD.winnerElem.innerText = "It is draw";    }
 
     if (GAMEBOARD.haveWinner === true) {
       // Remove click event for every field
       [...event.target.parentNode.childNodes].map((field) => {
         field.removeEventListener("click", handleClickEvent);
-        // Reset game with button
       });
-
-      // Game is ended - test
-      console.log(GAMEBOARD.gameboard)
-      console.log("game is over restart page");
     }
   },
   changePlayer: () => {
@@ -48,81 +45,97 @@ const GAMEFLOW = {
   findWinner: () => {
     // Check for "X"
     // check horizontal
-    if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[2] === "X") {
-      console.log("X is winner");
+    if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[2] === "X") {    
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[5] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[6] === "X" && GAMEBOARD.gameboard[7] === "X" && GAMEBOARD.gameboard[8] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     // check vertical
     else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[6] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[7] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[5] === "X" && GAMEBOARD.gameboard[8] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     // check diagonal
     else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[8] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[6] === "X") {
-      console.log("X is winner");
+      GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
     }
 
     // Check for "O"
     // check horizontal
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[2] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[5] === "O") {
-      console.log("0 is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[6] === "O" && GAMEBOARD.gameboard[7] === "O" && GAMEBOARD.gameboard[8] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     // check vertical
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[6] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[7] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[5] === "O" && GAMEBOARD.gameboard[8] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     // check diagonal
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[8] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[6] === "O") {
-      console.log("O is winner");
+      GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
     }
     // If there are no winner
     else {
       GAMEBOARD.haveWinner = false;
     }
+  },
+  resetGame: () => {
+    // Reset memory
+    GAMEBOARD.gameboard = ["", "", "", "", "", "", "", "", ""];
+    GAMEBOARD.haveWinner = false;
+    GAMEFLOW.turnCount = 1;
+    GAMEFLOW.userFirst = true;
+    
+    // Visual and allow user to click again at filds
+    [...GAMEBOARD.container.childNodes].map((field) => {
+      field.innerText = "";
+      field.addEventListener("click", handleClickEvent);
+    })
+    // Update winner score
+    GAMEBOARD.winnerElem.innerText = "";
+
   }
 };
 
@@ -148,7 +161,6 @@ function Player(mark) {
 
 // Create fields
 (function createFields() {
-  const container = document.getElementById("gameboard");
   let divId = 0;
   GAMEBOARD.gameboard.map((field) => {
     let div = document.createElement("div");
@@ -157,8 +169,12 @@ function Player(mark) {
     div.id = `field ${divId++}`;
     div.addEventListener("click", handleClickEvent);
 
-    container.appendChild(div);
+  GAMEBOARD.container.appendChild(div);
   });
+
+  // Reset button
+  const resetBtn = document.getElementById("resetBtn");
+  resetBtn.addEventListener("click", GAMEFLOW.resetGame);
 }());
 
 function handleClickEvent(e) {

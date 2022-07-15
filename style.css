@@ -23,3 +23,19 @@
   width: 100px;
   cursor: pointer;
 }
+#controls {
+  margin: 1em auto 0;
+  width: 300px;
+}
+#controls > *{
+  margin: 0.4em;
+}
+#resetBtn {
+  padding: 0.5em 1em;
+  border: 0;
+  border-radius: 0.5em;
+  background-color: #f00;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
