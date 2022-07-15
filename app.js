@@ -4,7 +4,8 @@ const GAMEBOARD = {
   playerTwo: new Player("O"),
   draw: (event, player) => {
     player.draw(event);
-  }
+  },
+  haveWinner: false
 };
 
 const GAMEFLOW = {
@@ -23,12 +24,16 @@ const GAMEFLOW = {
     GAMEFLOW.endGame(event);
   },
   endGame: (event) => {
+    GAMEFLOW.findWinner();
     // If game turn is 10 - all fields are clicked, game need to end
     if (GAMEFLOW.turnCount >= 10) {
+      GAMEBOARD.haveWinner = true;
+    }
+
+    if (GAMEBOARD.haveWinner === true) {
       // Remove click event for every field
       [...event.target.parentNode.childNodes].map((field) => {
         field.removeEventListener("click", handleClickEvent);
-        // Show winner
         // Reset game with button
       });
 
@@ -36,14 +41,90 @@ const GAMEFLOW = {
       console.log(GAMEBOARD.gameboard)
       console.log("game is over restart page");
     }
-
-    // Game is ended when someone make 3 in row
-    // ... 
   },
   changePlayer: () => {
     GAMEFLOW.userFirst = !GAMEFLOW.userFirst;
+  },
+  findWinner: () => {
+    // Check for "X"
+    // check horizontal
+    if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[2] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[5] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[6] === "X" && GAMEBOARD.gameboard[7] === "X" && GAMEBOARD.gameboard[8] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    // check vertical
+    else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[6] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[7] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[5] === "X" && GAMEBOARD.gameboard[8] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    // check diagonal
+    else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[8] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[6] === "X") {
+      console.log("X is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+
+    // Check for "O"
+    // check horizontal
+    else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[2] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[5] === "O") {
+      console.log("0 is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[6] === "O" && GAMEBOARD.gameboard[7] === "O" && GAMEBOARD.gameboard[8] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    // check vertical
+    else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[6] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[7] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[5] === "O" && GAMEBOARD.gameboard[8] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    // check diagonal
+    else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[8] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[6] === "O") {
+      console.log("O is winner");
+      GAMEBOARD.haveWinner = true;
+    }
+    // If there are no winner
+    else {
+      GAMEBOARD.haveWinner = false;
+    }
   }
-}
+};
 
 function Player(mark) {
   this.mark = mark;
