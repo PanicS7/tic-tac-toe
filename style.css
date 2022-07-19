@@ -39,3 +39,18 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+#score {
+  margin: 1em auto;
+  width: 300px;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+#score span {
+  color: #000;
+}
+
+.turn {
+  color: red;
+}

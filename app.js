@@ -7,7 +7,9 @@ const GAMEBOARD = {
   },
   haveWinner: false,
   winnerElem: document.getElementById("winner"),
-  container: document.getElementById("gameboard")
+  container: document.getElementById("gameboard"),
+  xElem: document.getElementById("x"),
+  oElem: document.getElementById("o")
 };
 
 const GAMEFLOW = {
@@ -40,6 +42,13 @@ const GAMEFLOW = {
     }
   },
   changePlayer: () => {
+    if (GAMEFLOW.userFirst === true) {
+      GAMEBOARD.oElem.parentNode.className = "turn";
+      GAMEBOARD.xElem.parentNode.className = "";
+    } else {
+      GAMEBOARD.xElem.parentNode.className = "turn";
+      GAMEBOARD.oElem.parentNode.className = "";
+    }
     GAMEFLOW.userFirst = !GAMEFLOW.userFirst;
   },
   findWinner: () => {
@@ -127,6 +136,8 @@ const GAMEFLOW = {
     GAMEBOARD.haveWinner = false;
     GAMEFLOW.turnCount = 1;
     GAMEFLOW.userFirst = true;
+    GAMEBOARD.xElem.parentNode.className = "turn";
+    GAMEBOARD.oElem.parentNode.className = "";
     
     // Visual and allow user to click again at filds
     [...GAMEBOARD.container.childNodes].map((field) => {
