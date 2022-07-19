@@ -57,36 +57,44 @@ const GAMEFLOW = {
     if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[2] === "X") {    
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[5] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[6] === "X" && GAMEBOARD.gameboard[7] === "X" && GAMEBOARD.gameboard[8] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     // check vertical
     else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[3] === "X" && GAMEBOARD.gameboard[6] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[1] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[7] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[5] === "X" && GAMEBOARD.gameboard[8] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     // check diagonal
     else if (GAMEBOARD.gameboard[0] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[8] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[2] === "X" && GAMEBOARD.gameboard[4] === "X" && GAMEBOARD.gameboard[6] === "X") {
       GAMEBOARD.winnerElem.innerText = "X is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.xElem.innerText = parseInt(GAMEBOARD.xElem.innerText) + 1;
     }
 
     // Check for "O"
@@ -94,36 +102,44 @@ const GAMEFLOW = {
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[2] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[5] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[6] === "O" && GAMEBOARD.gameboard[7] === "O" && GAMEBOARD.gameboard[8] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     // check vertical
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[3] === "O" && GAMEBOARD.gameboard[6] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[1] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[7] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[5] === "O" && GAMEBOARD.gameboard[8] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     // check diagonal
     else if (GAMEBOARD.gameboard[0] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[8] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     else if (GAMEBOARD.gameboard[2] === "O" && GAMEBOARD.gameboard[4] === "O" && GAMEBOARD.gameboard[6] === "O") {
       GAMEBOARD.winnerElem.innerText = "O is winner";
       GAMEBOARD.haveWinner = true;
+      GAMEBOARD.oElem.innerText = parseInt(GAMEBOARD.oElem.innerText) + 1;
     }
     // If there are no winner
     else {
