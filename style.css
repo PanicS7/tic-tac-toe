@@ -30,7 +30,7 @@
 #controls > *{
   margin: 0.4em;
 }
-#resetBtn {
+.btn {
   padding: 0.5em 1em;
   border: 0;
   border-radius: 0.5em;

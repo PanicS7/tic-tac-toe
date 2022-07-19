@@ -163,6 +163,10 @@ const GAMEFLOW = {
     // Update winner score
     GAMEBOARD.winnerElem.innerText = "";
 
+  },
+  resetScore: () => {
+    GAMEBOARD.xElem.innerText = 0;
+    GAMEBOARD.oElem.innerText = 0;
   }
 };
 
@@ -199,9 +203,13 @@ function Player(mark) {
   GAMEBOARD.container.appendChild(div);
   });
 
-  // Reset button
+  // Reset game button
   const resetBtn = document.getElementById("resetBtn");
   resetBtn.addEventListener("click", GAMEFLOW.resetGame);
+
+  // Reset score btn
+  const resetScoreBtn = document.getElementById("resetScoreBtn");
+  resetScoreBtn.addEventListener("click", GAMEFLOW.resetScore);
 }());
 
 function handleClickEvent(e) {
